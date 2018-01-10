@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="card_activity_background_color">#000000</color>
+    <color name="card_activity_button_color_stroke">#FFFFFF</color>
+    <color name="card_activity_button_color_solid">#00FFFFFF</color>
+    <color name="card_activity_button_color_solid_pressed">#FFFFFF</color>
+    <color name="card_activity_button_color_text">#FFFFFF</color>
+    <color name="card_activity_button_color_text_pressed">#000000</color>
+    <color name="card_activity_button_color_disabled">#51ffffff</color>
+</resources>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/card_activity_background_color"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
+
+    <FrameLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layout_done"
+        android:layout_below="@+id/toolbar">
+
+        <LinearLayout
+            android:id="@+id/info_layout"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/info_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="8sp"
+                android:textColor="@android:color/white"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                tools:text="Check your profiles" />
+
+            <TextView
+                android:id="@+id/info_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:lineSpacingExtra="4sp"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                tools:text="Ehi John, it seems that our staff created a profile associated to your email address yet.Verify and confirm to merge your profiles." />
+
+            <com.marozzi.roundbutton.RoundButton
+                android:id="@+id/start"
+                style="@style/CardButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/card_swipe_button_start"
+
+                app:rb_background_color="@color/card_activity_button_color_solid"
+                app:rb_background_color_pressed="@color/card_activity_button_color_solid_pressed"
+                app:rb_corner_color="@color/card_activity_button_color_stroke"
+                app:rb_corner_color_pressed="@color/card_activity_button_color_stroke"
+                app:rb_text_color="@color/card_activity_button_color_text"
+                app:rb_text_color_pressed="@color/card_activity_button_color_text_pressed" />
+        </LinearLayout>
+
+        <com.marozzi.requestactions.utils.NonSwipeViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:overScrollMode="never"
+
+            android:paddingEnd="30dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingStart="30dp"
+            android:translationX="200dp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#14ffffff"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <com.marozzi.roundbutton.RoundButton
+            android:id="@+id/done"
+            style="@style/CardButtons"
+            android:layout_width="96dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:enabled="false"
+            android:text="@string/card_swipe_button_done"
+
+            app:rb_background_color="@color/card_activity_button_color_solid"
+            app:rb_background_color_disabled="@color/card_activity_button_color_solid"
+            app:rb_background_color_pressed="@color/card_activity_button_color_solid_pressed"
+            app:rb_corner_color="@color/card_activity_button_color_stroke"
+            app:rb_corner_color_disabled="@color/card_activity_button_color_disabled"
+            app:rb_corner_color_pressed="@color/card_activity_button_color_stroke"
+            app:rb_text_color="@color/card_activity_button_color_text"
+            app:rb_text_color_disabled="@color/card_activity_button_color_disabled"
+            app:rb_text_color_pressed="@color/card_activity_button_color_text_pressed" />
+    </LinearLayout>
+</RelativeLayout>

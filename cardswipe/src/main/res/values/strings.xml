@@ -1,0 +1,4 @@
+<resources>
+    <string name="card_swipe_button_start">Start</string>
+    <string name="card_swipe_button_done">Done</string>
+</resources>
