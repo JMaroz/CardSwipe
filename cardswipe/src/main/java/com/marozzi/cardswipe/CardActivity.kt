@@ -21,6 +21,7 @@ abstract class CardActivity : AppCompatActivity(), CardFragment.CardFragmentList
         setSupportActionBar(toolbar)
 
         layout_done.visibility = View.INVISIBLE
+        done.isEnabled = false
 
         viewpager.enabledSwipe = false
         viewpager.adapter = adapter
@@ -29,15 +30,21 @@ abstract class CardActivity : AppCompatActivity(), CardFragment.CardFragmentList
         viewpager.rotationX = 2f
         viewpager.pageMargin = resources.getDimensionPixelOffset(R.dimen.space_16dp)
 
-        start.setOnClickListener({
+        start.setOnClickListener{
             viewpager.animate()
                     .translationX(0f)
                     .rotationX(0f)
                     .setDuration(350)
                     .setInterpolator(AccelerateDecelerateInterpolator())
                     .setListener(AnimateListener())
-        })
+        }
+
+        done.setOnClickListener {
+            onDoneClicked()
+        }
     }
+
+    abstract fun onDoneClicked()
 
     fun addCard(data: CardData) {
         adapter.addCard(data)

@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment
 import android.support.v7.widget.CardView
 import android.view.*
 import android.widget.FrameLayout
-import android.widget.ImageView
 import com.marozzi.cardswipe.model.CardData
 import com.marozzi.requestactions.utils.CircleTransform
 import com.marozzi.requestactions.utils.Utils
@@ -82,7 +81,9 @@ class CardFragment : Fragment() {
         view.main_text.text = card.mainText
         view.main_text.setTextColor(card.mainTextColor)
         if (card.mainIcon.isNotEmpty()) {
-            lateinit var requestCreator: RequestCreator
+            view.main_icon.visibility = View.VISIBLE
+
+            val requestCreator: RequestCreator
             if (Utils.isLocalResource(card.mainIcon)) {
                 requestCreator = Picasso.with(activity).load(Uri.parse(card.mainIcon))
 
@@ -92,17 +93,27 @@ class CardFragment : Fragment() {
                 requestCreator = Picasso.with(activity).load(card.mainIcon)
             }
             requestCreator.centerCrop().fit().transform(CircleTransform()).into(view.main_icon)
+        } else {
+            view.main_icon.visibility = View.GONE
         }
 
         view.second_text.text = card.secondText
         view.second_text.setTextColor(card.secondTextColor)
         if (card.secondIcon.isNotEmpty()) {
+            view.second_icon.visibility = View.VISIBLE
+
+            val requestCreator: RequestCreator
             if (Utils.isLocalResource(card.secondIcon)) {
-                view.second_icon.setImageURI(Uri.parse(card.secondIcon))
-                view.second_icon.scaleType = ImageView.ScaleType.FIT_CENTER
+                requestCreator = Picasso.with(activity).load(Uri.parse(card.secondIcon))
+
+//                view.second_icon.setImageURI(Uri.parse(card.secondIcon))
+//                view.second_icon.scaleType = ImageView.ScaleType.FIT_CENTER
             } else {
-                Picasso.with(activity).load(card.secondIcon).centerCrop().fit().into(view.second_icon)
+                requestCreator = Picasso.with(activity).load(card.secondIcon)
             }
+            requestCreator.into(view.second_icon)
+        } else {
+            view.second_icon.visibility = View.GONE
         }
 
         view.other_text.text = card.otherText
